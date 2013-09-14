@@ -16,4 +16,4 @@ def ordered_vowels(str)
   puts new_str.join(" ")
 end
 
-ordered_vowels("this is a tootho bearing testicle")
+ordered_vowels("this is a tootho bearing banana")

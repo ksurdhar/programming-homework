@@ -1,8 +1,7 @@
 def ordered?(str)
   vowels = %w{a e i o u}
-  str_vowels = []
 
-  str.split("").each {|l| str_vowels << l if vowels.include?(l)}
+  str_vowels = str.split("").select {|l| vowels.include?(l)}
 
   (0...(str_vowels.length - 1)).all? do |v|
     str_vowels[v] <= str_vowels[v + 1]
@@ -10,10 +9,9 @@ def ordered?(str)
 end
 
 def ordered_vowels(str)
-  new_str = []
-  str.split(" ").each {|word| new_str << word if ordered?(word)}
-
-  puts new_str.join(" ")
+  new_str = str.split(" ").select {|word| ordered?(word)}
+  new_str.join(" ")
 end
 
-ordered_vowels("this is a tootho bearing banana")
+puts ordered_vowels("this is a tootho bearing banana")
+#=> this is a tootho banana
